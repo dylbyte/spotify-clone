@@ -30,7 +30,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     },
     "secret",
     {
-      expiresIn: "12h",
+      expiresIn: "8h",
     }
   );
 
@@ -38,7 +38,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     "Set-Cookie",
     cookie.serialize("ACESS_TOKEN", token, {
       httpOnly: true,
-      maxAge: 12 * 60 * 60,
+      maxAge: 8 * 60 * 60,
       path: "/",
       sameSite: "lax",
       secure: process.env.NODE_ENV === "production",
