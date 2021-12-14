@@ -1,6 +1,6 @@
 import formatDuration from "format-duration";
 
-export const formatTime = () => {
+export const formatTime = (timeInSeconds) => {
   return formatDuration(timeInSeconds * 1000);
 };
 
