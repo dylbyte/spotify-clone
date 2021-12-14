@@ -50,7 +50,7 @@ const AuthForm: FC<{ mode: "signin" | "signup" }> = ({ mode }) => {
               bg="green.500"
               isLoading={isLoading}
               sx={{
-                "&hover": {
+                "&:hover": {
                   bg: "green.300",
                 },
               }}
