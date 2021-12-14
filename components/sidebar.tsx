@@ -1,6 +1,6 @@
-import NextImage from 'next/image'
-import NextLink from 'next/link'
-import React from 'react'
+import NextImage from "next/image";
+import NextLink from "next/link";
+import React from "react";
 import {
   Box,
   List,
@@ -10,47 +10,47 @@ import {
   Center,
   LinkBox,
   LinkOverlay,
-} from '@chakra-ui/layout'
+} from "@chakra-ui/layout";
 import {
   MdHome,
   MdSearch,
   MdLibraryMusic,
   MdPlaylistAdd,
   MdFavorite,
-} from 'react-icons/md'
+} from "react-icons/md";
 
 const navMenu = [
   {
-    name: 'Home',
+    name: "Home",
     icon: MdHome,
-    route: '/',
+    route: "/",
   },
   {
-    name: 'Search',
+    name: "Search",
     icon: MdSearch,
-    route: '/search',
+    route: "/search",
   },
   {
-    name: 'Library',
+    name: "Library",
     icon: MdLibraryMusic,
-    route: '/library',
+    route: "/library",
   },
-]
+];
 
 const musicMenu = [
   {
-    name: 'Create Playlist',
+    name: "Create Playlist",
     icon: MdPlaylistAdd,
-    route: '/',
+    route: "/",
   },
   {
-    name: 'Favorites',
+    name: "Favorites",
     icon: MdFavorite,
-    route: '/favorites',
+    route: "/favorites",
   },
-]
+];
 
-const playlists = new Array(30).fill(1).map((_, i) => `Playlist ${i + 1}`)
+const playlists = new Array(30).fill(1).map((_, i) => `Playlist ${i + 1}`);
 const Sidebar = () => {
   return (
     <Box
@@ -61,7 +61,7 @@ const Sidebar = () => {
       color="gray"
     >
       <Box paddingY="20px" height="100%">
-        <Box width="120px" marginBottom="20px" paddingX="20px">
+        <Box width="120px" marginBottom="40px" paddingX="20px">
           <NextImage src="/logo2.svg" height={80} width={120} />
         </Box>
         <Box marginBottom="20px">
@@ -120,7 +120,7 @@ const Sidebar = () => {
         </Box>
       </Box>
     </Box>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;

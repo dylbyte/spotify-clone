@@ -20,17 +20,17 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         email: user.email,
         time: Date.now(),
       },
-      "hello",
+      "hello", // secret
       {
         expiresIn: "8h",
       }
     );
 
     res.setHeader(
-      "Set-cookie",
+      "Set-Cookie",
       cookie.serialize("ACCESS_TOKEN", token, {
         httpOnly: true,
-        maxAge: 9 * 60 * 60,
+        maxAge: 8 * 60 * 60,
         path: "/",
         sameSite: "lax",
         secure: process.env.NODE_ENV === "production",
