@@ -26,6 +26,7 @@ const Player = ({ songs, activeSong }) => {
   const [playing, setPlaying] = useState(false);
   const [index, setIndex] = useState(0);
   const [seek, setSeek] = useState(0.0);
+  const [isSeeking, setIsSeeking] = useState(false);
   const [repeat, setRepeat] = useState(false);
   const [shuffle, setShuffle] = useState(false);
   const [duration, setDuration] = useState(0.0);
@@ -100,6 +101,7 @@ const Player = ({ songs, activeSong }) => {
             aria-label="previous"
             fontSize="24px"
             icon={<MdSkipPrevious />}
+            onClick={prevSong}
           />
           {playing ? (
             <IconButton
@@ -132,6 +134,7 @@ const Player = ({ songs, activeSong }) => {
             aria-label="next"
             fontSize="24px"
             icon={<MdSkipNext />}
+            onClick={nextSong}
           />
           <IconButton
             outline="none"
@@ -152,9 +155,13 @@ const Player = ({ songs, activeSong }) => {
             <RangeSlider
               aria-label={["min", "max"]}
               step={0.1}
-              min={0}
-              max={100}
               id="player-range"
+              min={0}
+              max={duration ? duration.toFixed(2) : 0}
+              onChange={onSeek}
+              value={[seek]}
+              onChangeStart={() => setIsSeeking(true)}
+              onChangeEnd={() => setIsSeeking(false)}
             >
               <RangeSliderTrack bg="gray.800">
                 <RangeSliderFilledTrack bg="gray.600" />
